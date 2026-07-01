@@ -13,6 +13,7 @@ public class Stage {
         if (stageNumber == 1) {
             enemies[0] = new Enemy("Dealer", 15, 1, 1, 10);
             enemies[1] = new Enemy("Pit Boss", 20, 2, 2, 15);
+
         }
         else if (stageNumber == 2) {
             enemies[0] = new Enemy("Card Shark", 25, 2, 3, 20);
@@ -30,6 +31,7 @@ public class Stage {
         }
         else {
             return enemies[1];
+
         }
     }
 

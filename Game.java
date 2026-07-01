@@ -18,10 +18,10 @@ public class Game {
     public void start() {
         showIntro();
 
-        if (askToStart()) {
-            enemy = promptEnemyChoice();
-            runCombat(enemy);
-            endGame();
+        if (askToStart()){
+                enemy = promptEnemyChoice();
+                runCombat(enemy);
+                endGame();
         }
         else {
             System.out.println("Maybe next time.");
@@ -66,9 +66,31 @@ public class Game {
             player.addCoins(enemy.getReward());
             System.out.println("You earned " + enemy.getReward() + " coins.");
             System.out.println("Total coins: " + player.getCoins());
+            
+            if (player.getCoins() >= 500){
+                System.out.println("Game Over, You got 500 coins and won! \n (this is not part of the story just for testing)");
+                return;
+            }
+            else {
+                continueGame();
+            }
         }
         else {
             System.out.println("Game Over.");
         }
+    }
+
+    private void continueGame() {
+
+        if (player.getCoins() >= 50 && stage.getStageNumber() <= 3){
+            System.out.println("You have spent 50 coins to get to stage " + (stage.getStageNumber()+1) +"! \n (this is not part of the story just for testing)");
+            player.setCoins(player.getCoins()-50);
+            stage = new Stage(stage.getStageNumber() + 1);
+        }
+
+
+        enemy = promptEnemyChoice();
+        runCombat(enemy);
+        endGame();
     }
 }

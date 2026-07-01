@@ -5,8 +5,8 @@ public class Player {
     private int coins;
 
     public Player() {
-        this.life = 20;
-        this.luck = 1;
+        this.life = 40;
+        this.luck = 30;
         this.coins = 0;
     }
 
